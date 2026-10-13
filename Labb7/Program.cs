@@ -21,7 +21,7 @@
             foreach (Question q in questions)
             {
                 Console.WriteLine(q.Questions);
-                string userAnswer = Console.ReadLine(); //save user answer
+                string userAnswer = Console.ReadLine() ?? ""; //save user answer + make sure it can't be null
 
                 //check if user answer is correct
                 if (userAnswer.ToLower() == q.Answers.ToLower()) //if correct
@@ -54,7 +54,5 @@
             }
         }
     }
-}
-    
 }
 
