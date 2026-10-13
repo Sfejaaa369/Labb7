@@ -40,6 +40,18 @@
             Console.WriteLine($"Your score: {userScore}/{questions.Count}");
 
 
+            if (userScore == questions.Count) //if user has all answers right
+            {
+                Console.WriteLine("Perfect score!"); //write they had a perfect score
+            }
+            else if (userScore >= questions.Count / 2) //if user had at least half of answers right
+            {
+                Console.WriteLine("Good job!"); //write they did a good job
+            }
+            else //if user had less than half of answers right
+            {
+                Console.WriteLine("Keep practicing!"); //tell them to keep practising
+            }
         }
     }
 }
