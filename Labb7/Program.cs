@@ -4,6 +4,10 @@
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to the capital city quiz!\n" +
+                "You can earn points by answering correctly.\n" +
+                "Some questions will earn you more points than others... Good luck!\n");
+
             //list with questions
             List<Question> questions = new List<Question>()
             {
