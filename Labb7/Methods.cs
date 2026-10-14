@@ -6,7 +6,8 @@ namespace Labb7
 {
     internal class Methods
     {
-        //method for welcome message
+        //method for writing out a welcome message
+        //void because it only writes out a message and doesn't need a return value
         public static void WriteWelcomeMessage()
         {
             Console.WriteLine(
@@ -42,15 +43,19 @@ namespace Labb7
             return maxScore;
         }
 
-        //method for shuffling the questions in the list
+        //method for shuffling the questions in the list in a random order
         public static void ShuffleQuestions(List<Question> questions)
         {
+            // Create a random number generator
             Random random = new Random();
 
+            // Start from the last question and work backwards
             for (int i = questions.Count - 1; i > 0; i--)
             {
+                // Pick a random index between 0 and i
                 int j = random.Next(i + 1);
 
+                // Swap the questions at positions i and j
                 Question temp = questions[i];
                 questions[i] = questions[j];
                 questions[j] = temp;
@@ -60,17 +65,18 @@ namespace Labb7
         //method for running the quiz game
         public static int RunQuiz(List<Question> questions)
         {
-            int userScore = 0;
+            int userScore = 0; //start user score at 0
 
-            foreach (Question q in questions)
+            foreach (Question q in questions) //write out questions from list
             {
                 Console.WriteLine(q.Text);
-                string userAnswer = Console.ReadLine() ?? "";
+                string userAnswer = Console.ReadLine() ?? ""; //unsure user answer is not null
 
-                if (userAnswer.ToLower() == q.Answer.ToLower())
+                //ensure user can write without capital letters and still have answer be correct
+                if (userAnswer.ToLower() == q.Answer.ToLower()) 
                 {
                     Console.WriteLine($"Correct! You earn {q.Points} point(s)!\n");
-                    userScore += q.Points;
+                    userScore += q.Points; //up the user score with the amount of points the question was worth
                 }
                 else
                 {
