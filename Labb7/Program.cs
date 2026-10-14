@@ -7,16 +7,8 @@
             //write a welcome message to the user, using a method (see Methods.cs)
             Methods.WriteWelcomeMessage();
 
-            //list with questions
-            List<Question> questions = new List<Question>()
-            {
-                new Question("What is the capital city of Sweden?", "Stockholm", 1),
-                new Question("What is the capital city of Belgium?", "Brussels", 1),
-                new Question("What is the capital city of Norway?", "Oslo", 1),
-                new Question("What is the capital city of China?", "Beijing", 2),
-                new Question("What is the capital city of Japan?", "Tokyo", 2),
-                new Question("What is the capital city of Myanmar", "Naypyidaw", 3)
-            };
+            //create list with questions, using a method (see Methods.cs)
+            List<Question> questions = Methods.CreateQuestions();
 
             //calculate the max score a user can get, using a method (see Methods.cs)
             int maxScore = Methods.CalculateMaxScore(questions);

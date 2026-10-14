@@ -15,6 +15,20 @@ namespace Labb7
                 "Some questions will earn you more points than others... Good luck!\n");
         }
 
+        //method to create list with questions
+        public static List<Question> CreateQuestions()
+        {
+            return new List<Question>
+            {
+        new Question("What is the capital city of Sweden?", "Stockholm", 1),
+        new Question("What is the capital city of Belgium?", "Brussels", 1),
+        new Question("What is the capital city of Norway?", "Oslo", 1),
+        new Question("What is the capital city of China?", "Beijing", 2),
+        new Question("What is the capital city of Japan?", "Tokyo", 2),
+        new Question("What is the capital city of Myanmar?", "Naypyidaw", 3)
+            };
+        }
+
         //method for calculating maxscore
         public static int CalculateMaxScore(List<Question> questions)
         {
