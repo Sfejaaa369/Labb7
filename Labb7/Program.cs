@@ -29,19 +29,34 @@
                 maxScore += q.Points;
             }
 
-            //write out each question in the list
+            // Create a random number generator
+            Random random = new Random();
+
+            /* Loop through the list from the last index to the first.
+             * Generate a random index.
+             * Swap the question at index i with the question at the random index.
+             * Repeating this for all indexes shuffles the list.
+             */
+            for (int i = questions.Count - 1; i > 0; i--)
+            {
+                int j = random.Next(i + 1);
+
+                Question temp = questions[i];
+                questions[i] = questions[j];
+                questions[j] = temp;
+            }
+
+            //write out all questions in the list
             foreach (Question q in questions)
             {
                 Console.WriteLine(q.Text);
-                //save user answer + make sure it can't be null
-                string userAnswer = Console.ReadLine() ?? ""; //AI suggestion: CANNOT BE NULL
+                string userAnswer = Console.ReadLine() ?? "";
 
                 //check if user answer is correct
-                //if correct
-                if (userAnswer.ToLower() == q.Answer.ToLower()) //AI suggestion: TOLOWER
+                if (userAnswer.ToLower() == q.Answer.ToLower()) //if correct
                 {
                     Console.WriteLine($"Correct! You earn {q.Points} point(s)!\n"); //write out correct
-                    userScore += q.Points; //up the score of the user
+                    userScore += q.Points; //up the score of the user with the amount of points gained per question
                 }
                 else //if not correct, write out they replied wrongly and give the correct answer
                 {
@@ -49,24 +64,23 @@
                 }
             }
 
-            //once all questions have been asked, show score overview
+            //once all questions have been asked, show score overview + message about score
             Console.WriteLine("=== GAME OVER ===");
             Console.WriteLine($"Your score: {userScore}/{maxScore}");
 
 
             if (userScore == maxScore) //if user has all answers right
             {
-                Console.WriteLine("Perfect score!"); //write they had a perfect score
+                Console.WriteLine("Perfect score!");
             }
             else if (userScore >= maxScore / 2) //if user got at least half of the points
             {
-                Console.WriteLine("Good job!"); //write they did a good job
+                Console.WriteLine("Good job!");
             }
             else //if user had less than half of the points
             {
-                Console.WriteLine("Keep practicing!"); //tell them to keep practising
+                Console.WriteLine("Keep practicing!");
             }
         }
     }
 }
-
