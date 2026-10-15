@@ -13,7 +13,7 @@
             //shuffle the questions, using a method (see Methods.cs)
             Methods.ShuffleQuestions(questions);
 
-            //play the quiz, includes a welcome message
+            //play the quiz + include a welcome message
             //calculates the user score by playing the quiz, using a method (see Methods.cs)
             int userScore = Methods.RunQuiz(questions);
 

@@ -33,7 +33,8 @@ namespace Labb7
             return maxScore;
         }
 
-        //method for shuffling the questions in the list in a random order
+        //method for shuffling the questions in the list in a random order - AI suggestion
+        //before, it was just a foreach loop going through the list, unshuffled
         public static void ShuffleQuestions(List<Question> questions)
         {
             // Create a random number generator
@@ -55,6 +56,7 @@ namespace Labb7
         //method for running the quiz game
         public static int RunQuiz(List<Question> questions)
         {
+            //welcome message
             Console.WriteLine(
                 "Welcome to the capital city quiz!\n" +
                 "You can earn points by answering correctly.\n" +
@@ -65,10 +67,14 @@ namespace Labb7
             foreach (Question q in questions) //write out questions from list
             {
                 Console.WriteLine(q.Text);
-                string userAnswer = Console.ReadLine() ?? ""; //unsure user answer is not null
+                //ensure user answer is not null- AI suggestion
+                //before, it was the same code but without: ?? ""
+                string userAnswer = Console.ReadLine() ?? "";
 
                 //ensure user can write without capital letters and still have answer be correct
-                if (userAnswer.ToLower() == q.Answer.ToLower()) 
+                //ToLower = AI suggestion
+                //before, it was the same but without the ToLower() added
+                if (userAnswer.ToLower() == q.Answer.ToLower())
                 {
                     Console.WriteLine($"Correct! You earn {q.Points} point(s)!\n");
                     userScore += q.Points; //up the user score with the amount of points the question was worth
