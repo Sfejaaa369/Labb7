@@ -6,16 +6,6 @@ namespace Labb7
 {
     internal class Methods
     {
-        //method for writing out a welcome message
-        //void because it only writes out a message and doesn't need a return value
-        public static void WriteWelcomeMessage()
-        {
-            Console.WriteLine(
-                "Welcome to the capital city quiz!\n" +
-                "You can earn points by answering correctly.\n" +
-                "Some questions will earn you more points than others... Good luck!\n");
-        }
-
         //method to create list with questions
         public static List<Question> CreateQuestions()
         {
@@ -65,6 +55,11 @@ namespace Labb7
         //method for running the quiz game
         public static int RunQuiz(List<Question> questions)
         {
+            Console.WriteLine(
+                "Welcome to the capital city quiz!\n" +
+                "You can earn points by answering correctly.\n" +
+                "Some questions will earn you more points than others... Good luck!\n");
+
             int userScore = 0; //start user score at 0
 
             foreach (Question q in questions) //write out questions from list
