@@ -98,7 +98,7 @@ namespace Labb7
             {
                 Console.WriteLine("Perfect score!");
             }
-            else if (userScore >= maxScore / 2)
+            else if (userScore >= (maxScore / 2))
             {
                 Console.WriteLine("Good job!");
             }
